@@ -1,4 +1,4 @@
-/**
+/*
  * Created by IntelliJ IDEA.
  * User: Lucas Vilela
  * Date: 23/09/2018
@@ -39,7 +39,7 @@ public class Main extends ListenerAdapter {
 
             dados.rolar();
 
-            dados.setQtdDados(eu.qtdSabios);
+            dados.setQtdDados(eu.getQtdSabios());
             dados.rolar();
 
             event.getChannel().sendMessage(String.format("Faces: %s", eu.abencoa(dados.getResultado()))).queue();
