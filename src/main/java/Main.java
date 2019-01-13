@@ -13,12 +13,13 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 import javax.security.auth.login.LoginException;
+import java.util.ArrayList;
 
 public class Main extends ListenerAdapter {
     public static void main(String[] args) throws LoginException {
         JDABuilder builder = new JDABuilder(AccountType.BOT);
 
-        String token = "";
+        String token = "NDAyNDMxODkxODA4MTkwNDg2.Doliqg.jtKngI7aZWgDArPCdKvJG45PXbk";
         builder.setToken(token);
         builder.addEventListener(new Main());
         builder.build();
@@ -33,15 +34,19 @@ public class Main extends ListenerAdapter {
         System.out.printf("<%s> %s\n", event.getAuthor().getName(), event.getMessage().getContentDisplay());
         if(message.startsWith(".roll")){
 
-            Dados primeiro = new Dados(Integer.valueOf(message.substring(message.indexOf(" ")).split(",")[0].trim()));
+            Dados dados = new Dados(Integer.valueOf(message.substring(message.indexOf(" ")).split(",")[0].trim()));
             Sabios eu = new Sabios(Integer.valueOf(message.substring(message.indexOf(" ")).split(",")[1].trim()));
 
-            primeiro.rolar();
-            event.getChannel().sendMessage(String.format("Faces: %s", eu.abencoa(primeiro.getResultado()))).queue();
-            primeiro.transforma();
-            event.getChannel().sendMessage(String.format("Valores: %s", primeiro.getResultado())).queue();
-            primeiro.ordenar();
-            event.getChannel().sendMessage(String.format("Resultados: %s", primeiro.somar(primeiro.getResultado()))).queue();
+            dados.rolar();
+
+            dados.setQtdDados(eu.qtdSabios);
+            dados.rolar();
+
+            event.getChannel().sendMessage(String.format("Faces: %s", eu.abencoa(dados.getResultado()))).queue();
+            dados.transforma();
+            event.getChannel().sendMessage(String.format("Valores: %s", dados.getResultado())).queue();
+            dados.ordenar();
+            event.getChannel().sendMessage(String.format("Resultados: %s", dados.somar(dados.getResultado()))).queue();
 
         }
     }

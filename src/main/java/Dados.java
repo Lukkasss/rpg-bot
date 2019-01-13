@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Random;
 
 public class Dados {
-    Integer qtdDados;
-    List<Integer> resultado = new ArrayList<Integer>();
+    private Integer qtdDados;
+    private ArrayList<Integer> resultado = new ArrayList<Integer>();
 
     public Dados(Integer qtdDados) {
         this.qtdDados = qtdDados;
@@ -35,7 +35,7 @@ public class Dados {
         this.qtdDados = qtdDados;
     }
 
-    public List<Integer> getResultado() {
+    public ArrayList<Integer> getResultado() {
         return resultado;
     }
 
@@ -96,7 +96,7 @@ public class Dados {
         Collections.sort(getResultado());
     }
 
-    public int somar(List<Integer> data){
+    public int somar(ArrayList<Integer> data){
         int soma = 0;
         for (int i = 0; i < data.size(); i++)
             soma += data.get(i);

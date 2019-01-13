@@ -1,5 +1,5 @@
 import java.util.Collections;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,7 +9,7 @@ import java.util.List;
  * To change this template use File | Settings | File and Code Templates.
  */
 public class Sabios {
-    Integer qtdSabios;
+    private Integer qtdSabios;
 
     public Sabios(Integer qtdSabios) {
         this.qtdSabios = qtdSabios;
@@ -23,7 +23,7 @@ public class Sabios {
         this.qtdSabios = qtdSabios;
     }
 
-    public List<Integer> abencoa(List<Integer> data){
+    public ArrayList<Integer> abencoa(ArrayList<Integer> data){
         for (int i = 0; i < getQtdSabios(); i++){
             Collections.sort(data);
             data.set(0, data.get(0) + 1);
