@@ -44,6 +44,7 @@ public class Dados {
 
                 case 1:
                     resultado.set(i, -3);
+                    break;
                 case 2:
                     resultado.set(i, -2);
                     break;
@@ -72,6 +73,7 @@ public class Dados {
                     Dados confirmar2 = new Dados(1);
                     confirmar2.rolar();
                     resultado.set(i, 6 + confirmar2.getResultado().get(0));
+                    break;
             }
     }
 
